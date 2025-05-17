@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebsiteBuilder Docs</title>
+  <link rel="icon" href="static/img/webbuilder.png">
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 2rem auto;
+      max-width: 900px;
+      padding: 0 1rem;
+    }
+
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #333;
+      margin: 2rem 0;
+    }
+
+    code, pre {
+      background: #1e1e1e;
+      color: #f8f8f2;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 0.95rem;
+      border-radius: 8px;
+    }
+
+    pre {
+      padding: 1em;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    code {
+      white-space: pre-wrap;
+    }
+
+    a {
+      color: #4ea1ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    img.logo {
+      width: 200px;
+    }
+
+    blockquote {
+      border-left: 5px solid #444;
+      padding: 0.8em 1em;
+      margin: 1.5em 0;
+      color: #ccc;
+      background: #222;
+      border-radius: 5px;
+    }
+
+    /* Info (blue) */
+    .info {
+      background-color: #1e2a3a;
+      border-left: 5px solid #3b82f6;
+      color: #cde1ff;
+    }
+
+    /* Warning (yellow) */
+    .warning {
+      background-color: #3a2f1e;
+      border-left: 5px solid #facc15;
+      color: #fff1c1;
+    }
+
+    /* Note (purple-gray) */
+    .note {
+      background-color: #2a1e3a;
+      border-left: 5px solid #a78bfa;
+      color: #e0d4f5;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="center">
+    <img src="static/img/webbuilder.png" alt="WebBuilder Logo" class="logo">
+  </h1>
+
+  <h1>🌐 WebsiteBuilder</h1>
+  <p><strong>WebsiteBuilder</strong> is a powerful yet simple Python-based application that lets you <strong>create, edit, and manage your websites dynamically</strong>. Built for flexibility and speed, it's perfect for developers looking for a lightweight, customizable development environment using Python.</p>
+
+  <hr />
+
+  <h2>🚀 Features</h2>
+  <ul>
+    <li>Intuitive dashboard interface for building and editing websites</li>
+    <li>Support for <strong>multiple servers</strong> with independent <strong>routes</strong></li>
+    <li><strong>Real-time editing</strong> with live preview functionality</li>
+    <li>Lightweight and <strong>RAM-based storage</strong> for ultra-fast prototyping</li>
+  </ul>
+
+  <hr />
+
+  <h2>📋 Requirements</h2>
+  <ul>
+    <li>Python <strong>3.12.6</strong></li>
+    <li>All dependencies listed in <code>requirements.txt</code></li>
+  </ul>
+
+  <p>Install the required packages with:</p>
+  <pre><code>pip install --upgrade pip &amp;&amp; pip install -r requirements.txt</code></pre>
+
+  <h2>🐳 Docker Support</h2>
+  <p>You can run WebsiteBuilder inside a Docker container for simplified deployment and consistent environments.</p>
+
+  <h3>📦 Build the Docker Image</h3>
+  <pre><code>docker build -t websitebuilder .</code></pre>
+
+  <h3>🚀 Run the Container</h3>
+  <pre><code>docker run -d --env-file .env websitebuilder</code></pre>
+
+  <blockquote class="info">
+    💡 Make sure your .env file is in the same directory as your Dockerfile.
+  </blockquote>
+
+  <hr />
+
+  <h2>🛠️ Getting Started</h2>
+
+  <h3>1. Clone the repository</h3>
+  <pre><code>git clone https://github.com/yourusername/WebsiteBuilder.git
+cd WebsiteBuilder</code></pre>
+
+  <h3>2. Install dependencies</h3>
+  <pre><code>pip install -r requirements.txt</code></pre>
+
+  <h3>3. Run the application</h3>
+  <pre><code>python -m app.dashboard</code></pre>
+
+  <h3>4. Access the dashboard</h3>
+  <p>Open your browser and visit: <strong>http://127.0.0.1:5000</strong></p>
+
+  <blockquote class="note">
+    💡 <strong>Tip:</strong> You can change the dashboard address by modifying the <code>PORT</code> and <code>HOST</code> values in the configuration.
+  </blockquote>
+
+  <hr />
+
+  <h2>⚙️ Configuration</h2>
+  <p>You can customize the server by creating a <code>.env</code> file in the root directory. Example:</p>
+
+  <pre><code>DEBUG=True
+PORT=5000
+HOST=127.0.0.1</code></pre>
+
+  <blockquote class="info">
+    ✅ The application will read this file automatically on startup to configure itself.
+  </blockquote>
+
+  <hr />
+
+  <h2>🧪 Development Mode</h2>
+  <p>To enable debug mode and auto-reload, set <code>DEBUG=True</code> in your <code>.env</code> file.</p>
+  <p>This is recommended during development to see changes without restarting the app manually.</p>
+
+  <h3>🌐 Exposing Your Local Port</h3>
+  <p>If you're developing a local server and want to make it accessible from the internet, you can use a tunneling service like <strong>Cloudflare Tunnel</strong>.</p>
+
+  <h4>✅ How It Works</h4>
+  <p>A tunneling tool such as <code>cloudflared</code> creates a secure connection between your local machine and a public endpoint.</p>
+
+  <h4>⚙️ Getting Started with <code>cloudflared</code></h4>
+
+  <p><strong>Install on Windows:</strong></p>
+  <pre><code>winget install --id Cloudflare.cloudflared</code></pre>
+
+  <p><strong>Start a tunnel:</strong></p>
+  <pre><code>cloudflared tunnel --url http://localhost:5000</code></pre>
+
+  <blockquote class="note">
+    Replace <code>http://localhost:5000</code> with the local URL and port your server is running on.
+  </blockquote>
+
+  <p>After running the command, you'll get a public URL like:</p>
+  <pre><code>https://your-subdomain.trycloudflare.com</code></pre>
+
+  <p>Anyone with this link can access your local application — securely and instantly.</p>
+
+  <hr />
+
+  <h3>📚 Documentation</h3>
+  <p>For more advanced usage, configuration options, or troubleshooting, visit the official Cloudflare Tunnel documentation:</p>
+  <p>🔗 <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/" target="_blank">Cloudflare Tunnel Docs</a></p>
+
+  <hr />
+
+  <blockquote class="warning">
+    ⚠️ <strong>Important Note:</strong><br>
+    Running a server on <code>localhost</code> means it's only accessible from <strong>your own device</strong> by default.<br>
+    Without a tunnel or special network configuration, <code>localhost</code> cannot be accessed from other devices — even if they're connected to the same Wi-Fi network.
+  </blockquote>
+
+  <hr />
+
+  <h2>📁 Project Structure</h2>
+  <pre><code>WebsiteBuilder/
+├── .env                # Environment configuration file
+├── Dockerfile          # Docker container configuration
+├── README.md           # Project documentation
+├── requirements.txt    # Python dependencies
+├── run.bat             # Windows launcher script
+│
+├── app/                # Core backend application
+│   ├── dashboard.py    # Dashboard controller (main UI logic)
+│   └── server.py       # Dynamic route/server handler
+│
+├── logs/               # Folder for application logs
+├── servers/            # Folder for server's data
+│
+├── static/             # Static assets for frontend
+│   ├── css/
+│   │   ├── edit.css
+│   │   └── index.css
+│   ├── img/
+│   │   ├── favicon.ico
+│   │   └── webbuilder.png
+│   └── js/
+│       ├── edit.js
+│       └── index.js
+│
+└── templates/
+    ├── edit.html
+    └── index.html</code></pre>
+
+  <hr />
+
+  <h2>📄 License</h2>
+  <p>This project is licensed under the <strong>MIT License</strong>.</p>
+  <p>See the <code>LICENSE</code> file for full license information.</p>
+
+  <hr />
+
+  <p class="center">© 2024 <a href="https://github.com/DeltaStudios01" target="_blank">Delta Studios</a> — All rights reserved.</p>
+
+</body>
+</html>
