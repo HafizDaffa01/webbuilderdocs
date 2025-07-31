@@ -1,9 +1,9 @@
 // sw.js
 const CACHE_NAME = 'websitebuilder-cache-v1';
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/webbuilder.png'
+  './',
+  './index.html',
+  './webbuilder.png'
 ];
 
 // Saat install, cache semua aset penting
